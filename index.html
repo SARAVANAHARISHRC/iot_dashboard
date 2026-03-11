@@ -1,35 +1,72 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-<title>IoT Satellite Telemetry Dashboard</title>
+<title>NASA Satellite Telemetry Dashboard</title>
 
 <style>
 
 body{
-font-family: Arial;
-background-color:#0b0f2e;
-color:white;
-text-align:center;
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    color:white;
+    text-align:center;
+
+    background: radial-gradient(circle at top, #0b1a3a, #000000);
 }
 
-h1{
-margin-top:20px;
+/* HEADER */
+
+.header{
+    padding:25px;
+    font-size:34px;
+    font-weight:bold;
+    letter-spacing:2px;
+    background:rgba(0,0,0,0.7);
+    border-bottom:2px solid cyan;
 }
 
-.container{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-padding:20px;
+.sub{
+    font-size:14px;
+    color:#aaa;
 }
 
-iframe{
-width:100%;
-height:260px;
-border:none;
-background:white;
+/* DASHBOARD GRID */
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
+    gap:25px;
+    padding:30px;
+}
+
+/* SENSOR CARDS */
+
+.card{
+    background:rgba(10,20,40,0.85);
+    border-radius:15px;
+    padding:15px;
+    box-shadow:0 0 20px rgba(0,255,255,0.3);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.03);
+    box-shadow:0 0 40px cyan;
+}
+
+.card h2{
+    font-size:18px;
+    margin-bottom:10px;
+    color:#00ffff;
+}
+
+/* FOOTER */
+
+.footer{
+    margin-top:20px;
+    padding:10px;
+    font-size:12px;
+    color:#777;
 }
 
 </style>
@@ -38,22 +75,53 @@ background:white;
 
 <body>
 
-<h1>Satellite Sensor Monitoring Dashboard</h1>
+<div class="header">
+🛰 NASA Satellite Telemetry Dashboard
+<div class="sub">IoT Sensor Monitoring System</div>
+</div>
 
-<div class="container">
+<div class="dashboard">
 
-<iframe src="https://thingspeak.com/channels/3295767/charts/1"></iframe>
+<div class="card">
+<h2>Pressure Sensor (P1)</h2>
+<iframe width="100%" height="260" style="border:none"
+src="https://thingspeak.com/channels/3295767/charts/1?bgcolor=%23000000&color=%2300ffff&dynamic=true">
+</iframe>
+</div>
 
-<iframe src="https://thingspeak.com/channels/3295767/charts/2"></iframe>
+<div class="card">
+<h2>Pressure Sensor (P2)</h2>
+<iframe width="100%" height="260" style="border:none"
+src="https://thingspeak.com/channels/3295767/charts/2?bgcolor=%23000000&color=%2300ffff&dynamic=true">
+</iframe>
+</div>
 
-<iframe src="https://thingspeak.com/channels/3295767/charts/3"></iframe>
+<div class="card">
+<h2>Temperature Sensor (T1)</h2>
+<iframe width="100%" height="260" style="border:none"
+src="https://thingspeak.com/channels/3295767/charts/3?bgcolor=%23000000&color=%2300ffff&dynamic=true">
+</iframe>
+</div>
 
-<iframe src="https://thingspeak.com/channels/3295767/charts/4"></iframe>
+<div class="card">
+<h2>Magnetometer Sensor (M1)</h2>
+<iframe width="100%" height="260" style="border:none"
+src="https://thingspeak.com/channels/3295767/charts/4?bgcolor=%23000000&color=%2300ffff&dynamic=true">
+</iframe>
+</div>
 
-<iframe src="https://thingspeak.com/channels/3295767/charts/5"></iframe>
+<div class="card">
+<h2>Magnetometer Sensor (M2)</h2>
+<iframe width="100%" height="260" style="border:none"
+src="https://thingspeak.com/channels/3295767/charts/5?bgcolor=%23000000&color=%2300ffff&dynamic=true">
+</iframe>
+</div>
 
 </div>
 
-</body>
+<div class="footer">
+Live telemetry data powered by ThingSpeak Cloud
+</div>
 
+</body>
 </html>
